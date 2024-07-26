@@ -21,16 +21,19 @@ Features
 You can get some examples and generated images on 
 `blockdiag.com <http://blockdiag.com/en/nwdiag/nwdiag-examples.html>`_ .
 
-Setup
-=====
+Setup of the dev env
+====================
 
-Use easy_install or pip::
+Use Makefile target 'env'::
 
-   $ sudo easy_install nwdiag
+   $ make env
 
-   Or
+Build the Python package locally
+================================
 
-   $ sudo pip nwdiag
+Use Makefile target 'build'::
+
+   $ make build
 
 
 spec-text setting sample
@@ -62,9 +65,30 @@ simple.diag is simply define nodes and transitions by dot-like text format::
       }
     }
 
+Launch in Docker
+================
 
-Usage
-=====
+Use Makefile target 'docker-run-slim'::
+
+   $ make docker-run-slim
+
+Once the Docker image is built, you can also launch a specific `nwdiag` command::
+
+   $ docker run --rm -v $PWD/examples/nwdiag:/app -t nwdiag-slim:latest nwdiag simple.diag
+   $ ls -al $PWD/examples/nwdiag
+
+To ouput an SVG file::
+
+   $ docker run --rm -v $PWD/examples/nwdiag:/app -t nwdiag-slim:latest nwdiag -T svg simple.diag
+   $ ls -al $PWD/examples/nwdiag
+
+To enter inside the container::
+
+   $ make docker-run
+   $ docker run --rm -v $PWD/examples/nwdiag:/app -t nwdiag:latest bash
+
+Usage in shell
+==============
 
 Execute nwdiag command::
 
@@ -76,7 +100,7 @@ Execute nwdiag command::
 Requirements
 ============
 * Python 3.7 or later
-* blockdiag 1.5.0 or later
+* blockdiag 3.0.0 or later
 * funcparserlib 0.3.6 or later
 * reportlab (optional)
 * wand and imagemagick (optional)

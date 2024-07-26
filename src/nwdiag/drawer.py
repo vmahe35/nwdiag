@@ -75,7 +75,15 @@ class DiagramDraw(blockdiag.drawer.DiagramDraw):
     def trunkline(self, network, shadow=False):
         metrics = self.metrics
         m = metrics.network(network)
+
+        print(f"trunk diameter={metrics.trunk_diameter} and network.trunk_diameter={network.trunk_diameter} for network {network.id}")
         r = metrics.trunk_diameter // 2
+
+        # Overload default trunk diameter if a specific value is given for this network
+        if (network.trunk_diameter):
+            r = int(network.trunk_diameter) // 2
+
+        print(f"Drawing trunkline with r={r} for network {network.id} and shadow {shadow}")
 
         pt1, pt2 = m.trunkline
         box = Box(pt1.x, pt1.y - r, pt2.x, pt2.y + r)

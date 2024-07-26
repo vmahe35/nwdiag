@@ -50,6 +50,7 @@ class DiagramEdge(blockdiag.elements.DiagramEdge):
 class Network(blockdiag.elements.NodeGroup):
     basecolor = (185, 203, 228)
     linecolor = (0, 0, 0)
+    trunk_diameter: int
 
     @classmethod
     def set_default_linecolor(cls, color):
@@ -72,6 +73,8 @@ class Network(blockdiag.elements.NodeGroup):
         self.hidden = False
         self.colwidth = 1
         self.colheight = 1
+        self.trunk_diameter = None
+        print(f'Network creation : {self.id}.')
 
     @classmethod
     def create_anonymous(cls, nodes, attrs=None):
@@ -109,7 +112,6 @@ class Network(blockdiag.elements.NodeGroup):
 
         return label
 
-
 class Route(blockdiag.elements.DiagramEdge):
     basecolor = (255, 0, 0)
 
@@ -143,6 +145,8 @@ class Diagram(blockdiag.elements.Diagram):
     _Network = Network
     _Route = Route
 
+    network_trunk_diameter: int
+   
     def set_default_linecolor(self, color):
         super(Diagram, self).set_default_linecolor(color)
         self._Network.set_default_linecolor(self.linecolor)
@@ -171,6 +175,7 @@ class Diagram(blockdiag.elements.Diagram):
         self.groups = []
         self.networks = []
         self.routes = []
+        self.network_trunk_diameter = None
 
     def set_external_connector(self, value):
         value = value.lower()

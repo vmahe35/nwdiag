@@ -30,7 +30,7 @@ def get_version():
 
 
 setup(
-    name='nwdiag',
+    name='nwdiag-nocher',
     version=get_version(),
     description='nwdiag generates network-diagram image from text',
     long_description=open("README.rst").read(),
@@ -51,7 +51,7 @@ setup(
     package_data={'': ['buildout.cfg']},
     include_package_data=True,
     python_requires=">=3.7",
-    install_requires=['blockdiag>=3.0.0'],
+    install_requires=['blockdiag>=3.0.0','pillow==9.5.0'],
     extras_require=dict(
         testing=[
             'nose',

@@ -35,7 +35,11 @@ class DiagramMetrics(blockdiag.metrics.DiagramMetrics):
         super(DiagramMetrics, self).__init__(diagram, **kwargs)
 
         self.networks = diagram.networks
-        self.trunk_diameter = self.cellsize
+        if (diagram.network_trunk_diameter):
+            self.trunk_diameter = int(diagram.network_trunk_diameter)
+        else:
+            self.trunk_diameter = self.cellsize
+        print(f"Setting default network trunk_diameter to {self.trunk_diameter}")
         self.jump_shift = self.trunk_diameter // 2
         self.jump_radius = self.trunk_diameter
         self.page_padding = [self.span_height // 2, 0, 0, self.node_width]

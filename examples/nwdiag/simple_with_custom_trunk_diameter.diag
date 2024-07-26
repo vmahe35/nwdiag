@@ -1,0 +1,43 @@
+nwdiag {
+  node_width = 128;  // default value is 128
+  node_height = 100;  // default value is 40
+  network_trunk_diameter = 47
+
+  network dmz {
+      address = "210.x.x.x/24"
+      //trunk_diameter = 12
+
+      web01 [address = "210.x.x.1"];
+      web02 [address = "210.x.x.2"];
+  }
+  network internal {
+      address = "172.x.x.x/24";
+      color = "red";
+      //color = "palegreen";
+      style = dotted;
+
+      web01 [address = "172.x.x.1", shape = "ellipse", height = 150, style = dotted];
+      web02 [address = "172.x.x.2"];
+      beginpoint [shape = beginpoint];
+      endpoint [shape = endpoint];
+
+      db01;
+      db02;
+  }
+
+  // Test a group because Network derivates from NodeGroup
+  group {
+      db01;
+      db02;
+      height = 120
+      //thick
+      label = "third group";
+      color = "#FF0000";
+
+      // Set group shape to 'line group' (default is box)
+      shape = line;
+
+      // Set line style (effects to 'line group' only)
+      style = dashed;
+  }
+}
