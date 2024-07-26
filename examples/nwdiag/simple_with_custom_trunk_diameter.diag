@@ -1,11 +1,11 @@
 nwdiag {
   node_width = 128;  // default value is 128
   node_height = 100;  // default value is 40
-  network_trunk_diameter = 47
+  network_trunk_diameter = 47  // default network trunk diameter for the whole diagram
 
   network dmz {
+      trunk_diameter = 12  // you can also override the trunk diameter with a specific value for a given network
       address = "210.x.x.x/24"
-      //trunk_diameter = 12
 
       web01 [address = "210.x.x.1"];
       web02 [address = "210.x.x.2"];
