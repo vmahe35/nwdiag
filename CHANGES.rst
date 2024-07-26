@@ -3,6 +3,7 @@ Changelog
 
 3.0.1 (2024-07-25)
 ------------------
+* Integrate the 7 commits from `this Pull Request <https://github.com/blockdiag/nwdiag/pull/15>`_ in order to be able compute routes between 2 network nodes.
 * Add support for customized network trunk diameter and an example.
 
 3.0.0 (2021-12-06)

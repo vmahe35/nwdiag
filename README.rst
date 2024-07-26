@@ -17,8 +17,8 @@ Features
 ========
 * This project is a fork of the `nwdiag <https://github.com/blockdiag/nwdiag>`_ project that adds the following features:
 
-   * Integrate the 7 commits from `this Pull Request <https://github.com/blockdiag/nwdiag/pull/15>`_ in order to be able compute routes between 2 network nodes.
-   * Be able to define a default network trunk diameter.
+  * Integrate the 7 commits from `this Pull Request <https://github.com/blockdiag/nwdiag/pull/15>`_ in order to be able compute routes between 2 network nodes.
+  * Be able to define a default network trunk diameter.
 
 You can get some examples and generated images in folder ``./examples/nwdiag``.
 
