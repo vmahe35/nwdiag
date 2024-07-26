@@ -16,3 +16,7 @@ TAGS
 env/
 build/
 dist/
+_build/
+.devcontainer/
+.venv*
+venv*

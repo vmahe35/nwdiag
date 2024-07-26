@@ -24,14 +24,14 @@ You can get some examples and generated images on
 Setup of the dev env
 ====================
 
-Use Makefile target 'env'::
+Use Makefile target ``env``::
 
    $ make env
 
 Build the Python package locally
 ================================
 
-Use Makefile target 'build'::
+Use Makefile target ``build``::
 
    $ make build
 
@@ -46,7 +46,7 @@ You can get more examples at
 simple.diag
 ------------
 
-simple.diag is simply define nodes and transitions by dot-like text format::
+``simple.diag`` is simply define nodes and transitions by dot-like text format::
 
     nwdiag {
       network dmz {
@@ -68,29 +68,29 @@ simple.diag is simply define nodes and transitions by dot-like text format::
 Launch in Docker
 ================
 
-Use Makefile target 'docker-run-slim'::
+Use Makefile target ``docker-build-slim``::
 
-   $ make docker-run-slim
+   $ make docker-build-slim
 
-Once the Docker image is built, you can also launch a specific `nwdiag` command::
+Once the Docker image is built, you can also launch a specific ``nwdiag`` command::
 
    $ docker run --rm -v $PWD/examples/nwdiag:/app -t nwdiag-slim:latest nwdiag simple.diag
    $ ls -al $PWD/examples/nwdiag
 
-To ouput an SVG file::
+To output an SVG file, use option ``-T svg``::
 
    $ docker run --rm -v $PWD/examples/nwdiag:/app -t nwdiag-slim:latest nwdiag -T svg simple.diag
    $ ls -al $PWD/examples/nwdiag
 
 To enter inside the container::
 
-   $ make docker-run
+   $ make docker-build
    $ docker run --rm -v $PWD/examples/nwdiag:/app -t nwdiag:latest bash
 
 Usage in shell
 ==============
 
-Execute nwdiag command::
+Execute ``nwdiag`` command::
 
    $ nwdiag simple.diag
    $ ls simple.png
