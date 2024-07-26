@@ -136,8 +136,8 @@ To output an SVG file, use option ``-T svg``::
 
 To enter inside the container::
 
-   $ make docker-build
-   $ docker run --rm -v $PWD/examples/nwdiag:/app -t nwdiag:latest bash
+   $ docker run -it --rm -v $PWD/examples/nwdiag:/app -t nwdiag-slim:latest bash
+   $ nwdiag simple.diag
 
 Usage in shell
 ==============
